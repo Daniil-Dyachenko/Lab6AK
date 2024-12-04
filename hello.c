@@ -76,10 +76,11 @@ static int __init hello_init(void)
 	BUG_ON(hello_count > 10);
 
 	for (i = 0; i < hello_count; i++) {
-		if (i == 4)
+		if (i == 4) {
 			item = NULL;
-		else
+		} else {
 			item = kmalloc(sizeof(*item), GFP_KERNEL);
+		}
 
 		BUG_ON(!item);
 
@@ -101,4 +102,3 @@ static void __exit hello_exit(void)
 
 module_init(hello_init);
 module_exit(hello_exit);
-
